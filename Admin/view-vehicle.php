@@ -1,11 +1,4 @@
-<?php
-session_start();
-if(isset($_SESSION['user'])){
-  $user=$_SESSION['user'];
-}else{
-header('location:Login.php');
-}
-?>
+
 <?php
 include('includes/header.php');
 include('includes/topbar.php');

@@ -1,16 +1,16 @@
 <?php
 session_start();
-
-if ((isset($_SESSION['user_name']) == 1)) {
-    $user = $_SESSION['user_name'];
-} else {
-    header('location:Login.php');
+if(isset($_SESSION['admin'])){
+  $admin=$_SESSION['admin'];
+}else{
+header('location:login.php');
 }
+?>
+<?php
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
 ?>
-
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -23,8 +23,8 @@ include('includes/sidebar.php');
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="logout.php">Logout</a></li>
-                        <li class="breadcrumb-item active"><?php echo "$user"; ?></li>
+                        <li class="breadcrumb-item"><a href="adm_logout.php">Logout</a></li>
+                        <li class="breadcrumb-item active"><?php echo $admin;?></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->

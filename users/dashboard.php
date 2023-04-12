@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(isset($_SESSION['user_name'])){
-  $user=$_SESSION['user_name'];
+if(isset($_SESSION['user'])){
+  $user=$_SESSION['user'];
 }else{
 header('location:Login.php');
 }
@@ -63,7 +63,7 @@ include('includes/topbar.php');
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="index1.php">Home</a></li>
                         <li class="breadcrumb-item"><a href="logout.php">Logout</a></li>
-                        <li class="breadcrumb-item active"><?php echo "$user";?></li>
+                        <li class="breadcrumb-item active"><?php echo $user;?></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->

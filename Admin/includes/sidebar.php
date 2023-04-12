@@ -76,27 +76,10 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-car"></i>
-              <p>
-                Manage User Car
-                <i class="fas fa-angle-left right"></i>
-              </p>
+            <a href="user_car.php" class="nav-link">
+              <i class="nav-icon fa fa-car"></i>
+                <p>User Car</p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="add_user_car.php" class="nav-link">
-                  <i class="nav-icon fas fa-car"></i>
-                  <p>Add User Car</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="user_car.php" class="nav-link">
-                  <i class="nav-icon fas fa-car"></i>
-                  <p>User Car</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item">
             <a href="all_users.php" class="nav-link">

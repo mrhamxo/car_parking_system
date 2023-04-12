@@ -1,11 +1,5 @@
 <?php
-
-use PSpell\Config;
-
 include("config/dbconn.php");
-?>
-<?php
-session_start();
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -54,8 +48,8 @@ include('includes/sidebar.php');
                                     while($row=mysqli_fetch_assoc($res)){
                                     ?>
                                     <tr>
-                                        <td><?php echo $row['id'];?></td>
-                                        <td><?php echo $row['vehiclecat']?></td>
+                                        <td><?php echo $row['ID'];?></td>
+                                        <td><?php echo $row['VehicleCat']?></td>
                                         <td><a href="" class="btn btn-primary">Edit</a>
                                             <a href="" class="btn btn-danger"
                                                 onClick="return confirm('Are you sure you want to delete?')">Delete</a>
