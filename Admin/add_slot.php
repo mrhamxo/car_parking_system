@@ -36,7 +36,7 @@ if (isset($_POST['slot_btn'])) {
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right text-right">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="add_vehicle.php">Parking Slot</a></li>
+                                <li class="breadcrumb-item"><a href="manage_slot.php">Parking Slot</a></li>
                                 <li class="breadcrumb-item active">Add Parking Slot</li>
                             </ol>
                         </div><!-- /.col -->
