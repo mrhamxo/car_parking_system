@@ -14,13 +14,14 @@ include('includes/sidebar.php');
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Manage Parking System</h1>
+                            
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right text-right">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="manage_slot.php">Slot</a></li>
-                                <li class="breadcrumb-item active">Manage Slot</li>
+                                <li class="breadcrumb-item"><a href="add_vehicle.php">Category</a></li>
+                                <li class="breadcrumb-item active">Manage Add Slot</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -31,15 +32,20 @@ include('includes/sidebar.php');
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title">Manage Parking System</strong>
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    <!-- Add slot Button -->
+                                    <a href="add_slot.php" class="btn btn-primary float-right">
+                                        Add slot
+                                    </a>
+                                </h6>
                             </div>
                             <div class="card-body">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Slot Id</th>
                                             <th>Slot Name</th>
-                                            <th>Status</th>
+                                            <th>Acive</th>
+                                            <th>Availability</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -60,7 +66,9 @@ include('includes/sidebar.php');
                                                         <span class="badge bg-danger p-2 text-white">Inactive</span>
                                                     <?php } ?>
                                                 </td>
-                                                <td><a href="#" class="btn btn-primary" name="delete" value="">Delete</a></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-primary" name="delete" value="">Delete</a>
+                                                </td>
                                             </tr>
                                         <?php
                                         }
