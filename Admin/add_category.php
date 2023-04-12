@@ -20,7 +20,7 @@ include('includes/sidebar.php');
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right text-right">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="add_vehicle.php">Category</a></li>
+                                <li class="breadcrumb-item"><a href="add_category.php">Category</a></li>
                                 <li class="breadcrumb-item active">Add Category</li>
                             </ol>
                         </div><!-- /.col -->

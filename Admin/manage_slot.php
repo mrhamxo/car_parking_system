@@ -19,8 +19,8 @@ include('includes/sidebar.php');
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right text-right">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="add_vehicle.php">Category</a></li>
-                                <li class="breadcrumb-item active">Manage Add Slot</li>
+                                <li class="breadcrumb-item"><a href="manage_slot.php">Slot</a></li>
+                                <li class="breadcrumb-item active">Manage Slot</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -37,9 +37,9 @@ include('includes/sidebar.php');
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th>Slot Id</th>
                                             <th>Slot Name</th>
-                                            <th>Acive</th>
-                                            <th>Availability</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>

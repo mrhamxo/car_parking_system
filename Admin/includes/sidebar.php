@@ -64,13 +64,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="add_category.php" class="nav-link">
+              <a href="manage_in_vehicle.php" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Manage In Vehicle</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="manage_category.php" class="nav-link">
+              <a href="manage_out_vehicle.php" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Manage Out Vehicle</p>
               </a>

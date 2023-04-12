@@ -1,6 +1,6 @@
 <?php
 include("config/dbconn.php");
-if(isset($_POST['Login'])){
+if(isset($_POST['login'])){
  $user=$_POST['user'];
  $Password=$_POST['password']; 
  $sql="SELECT *FROM user WHERE user_name='$user' AND password='$Password'";
