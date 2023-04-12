@@ -1,12 +1,13 @@
 <?php
 session_start();
-if(isset($_SESSION['admin'])){
-  $admin=$_SESSION['admin'];
-}else{
-header('location:login.php');
+if (isset($_SESSION['admin'])) {
+    $admin = $_SESSION['admin'];
+} else {
+    header('location:login.php');
 }
 ?>
 <?php
+include('config/dbconn.php');
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -24,7 +25,7 @@ include('includes/sidebar.php');
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="adm_logout.php">Logout</a></li>
-                        <li class="breadcrumb-item active"><?php echo $admin;?></li>
+                        <li class="breadcrumb-item active"><?php echo $admin; ?></li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -39,9 +40,20 @@ include('includes/sidebar.php');
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <p>Total parking slot</p>
+                            <?php
+                            $sql = "SELECT
+                                COUNT(if(slot_status='active' && slot_status='inactive', 1, 0)) as slot
+                                FROM `park_slot`";
 
-                            <p>New Orders</p>
+                            $result = mysqli_query($conn, $sql);
+
+                            while ($query_array = mysqli_fetch_array($result)) {
+                                $slot = $query_array['slot'];
+
+                                echo '<h4 class="font-weight-bolder">' . $slot . '</h4>';
+                            }
+                            ?>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
@@ -54,9 +66,20 @@ include('includes/sidebar.php');
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53<sup style="font-size: 20px">%</sup></h3>
+                            <p>Available park slot</p>
+                            <?php
+                            $sql = "SELECT
+                                    COUNT(if(slot_status='active', 1, NULL)) as slot
+                                    FROM `park_slot`";
 
-                            <p>Bounce Rate</p>
+                            $result = mysqli_query($conn, $sql);
+
+                            while ($query_array = mysqli_fetch_array($result)) {
+                                $slot = $query_array['slot'];
+
+                                echo '<h4 class="font-weight-bolder">' . $slot . '</h4>';
+                            }
+                            ?>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -69,9 +92,20 @@ include('includes/sidebar.php');
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <p>Unavailable park slot</p>
+                            <?php
+                            $sql = "SELECT
+                                COUNT(if(slot_status='inactive', 0, NULL)) as slot
+                                FROM `park_slot`";
 
-                            <p>User Registrations</p>
+                            $result = mysqli_query($conn, $sql);
+
+                            while ($query_array = mysqli_fetch_array($result)) {
+                                $slot = $query_array['slot'];
+
+                                echo '<h4 class="font-weight-bolder">' . $slot . '</h4>';
+                            }
+                            ?>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-add"></i>
