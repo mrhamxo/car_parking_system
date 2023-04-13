@@ -7,6 +7,7 @@ header('location:login.php');
 }
 ?>
 <?php
+include('config/dbconn.php');
 include('includes/header.php');
 include('includes/topbar.php');
 
@@ -67,13 +68,29 @@ include('includes/topbar.php');
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
-            <div class="row" style="margin:100px 0px 0px 150px">
-                <div class="col-2" id="box"></div>
-                <div class="col-2" id="box"></div>
-                <div class="col-2" id="box"></div>
-                <div class="col-2" id="box"></div>
-                <div class="col-2" id="box"></div>
+            <div class="container" style="margin-left:70px">
+
+<div class="row">
+    <?php
+    $sql1 = "SELECT * FROM `tblvehicle`";
+    $res = mysqli_query($conn, $sql1);
+    while ($row = mysqli_fetch_assoc($res)) {
+    ?>
+            <div class="col-2 p-4 pb-4 bg-success text-white m-2 text-center">
+                <?php  echo $row['ID']."<br>"; ?>
+                <?php  echo $row['ParkingNumber']."<br>"; ?>
+                <?php  echo $row['RegistrationNumber']."<br>"; ?>
+                <?php  echo $row['OwnerName']."<br>"; ?>
+                <?php  echo $row['InTime']."<br>"; ?>
             </div>
+    
+    <?php
+    }
+    ?>
+
+</div>
+
+</div>
         </div><!-- /.container-fluid -->
     </div>
 </div>
