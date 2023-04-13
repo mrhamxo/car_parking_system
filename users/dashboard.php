@@ -70,27 +70,41 @@ include('includes/topbar.php');
             </div><!-- /.row -->
             <div class="container" style="margin-left:70px">
 
-<div class="row">
-    <?php
-    $sql1 = "SELECT * FROM `tblvehicle`";
+                <div class="row">
+                    <?php
+    $sql1 = "SELECT *FROM tblvehicle JOIN park_slot WHERE tblvehicle.parking_slot=park_slot.slot_id";
     $res = mysqli_query($conn, $sql1);
     while ($row = mysqli_fetch_assoc($res)) {
     ?>
-            <div class="col-2 p-4 pb-4 bg-success text-white m-2 text-center">
-                <?php  echo $row['ID']."<br>"; ?>
-                <?php  echo $row['ParkingNumber']."<br>"; ?>
-                <?php  echo $row['RegistrationNumber']."<br>"; ?>
-                <?php  echo $row['OwnerName']."<br>"; ?>
-                <?php  echo $row['InTime']."<br>"; ?>
+                    <?php
+            if ($row['status'] == 1) {
+            ?>
+                    <div class="col-2 p-4 pb-4 bg-danger text-white m-2 text-center">
+                        <?php  echo $row['ID']."<br>"; ?>
+                        <?php  echo $row['ParkingNumber']."<br>"; ?>
+                        <?php  echo $row['RegistrationNumber']."<br>"; ?>
+                        <?php  echo $row['OwnerName']."<br>"; ?>
+                        <?php  echo $row['InTime']."<br>"; ?>
+                        <?php  echo $row['slot_name']."<br>"; ?>
+                    </div>
+                    <?php
+            } else {
+            ?>
+                    <div class="col-2 p-4 pb-4 bg-success text-white m-2 text-center">
+                       
+                    </div>
+                    <?php
+            }
+            ?>
+
+                    <?php
+        }
+
+        ?>
+
+                </div>
+
             </div>
-    
-    <?php
-    }
-    ?>
-
-</div>
-
-</div>
         </div><!-- /.container-fluid -->
     </div>
 </div>
