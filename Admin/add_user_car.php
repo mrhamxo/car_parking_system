@@ -3,6 +3,10 @@ include("config/dbconn.php");
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
+echo "<script>if(window.history.replaceState){
+    window.history.replaceState(null,null,window.location.href);
+    }  
+    </script>";
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -31,11 +35,8 @@ include('includes/sidebar.php');
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-header">
-                                <a href="user_car.php" class="btn btn-primary float-right">
-                                    User Car
-                                </a>
-                            </div>
+                            <!-- <div class="card-header">
+                            </div> -->
                             <div class="card-body">
                                 <div class="container">
                                     <form action="" method="POST">
@@ -47,7 +48,9 @@ include('includes/sidebar.php');
                                             $sql = "INSERT INTO `user_car` (`parking_address`, `parking_slots`, `parking_area`, `status`, `action`) VALUES ('$par_address', '$par_slots', '$par_area', '1', '0')";
                                             $res = mysqli_query($conn, $sql);
                                             if ($res) {
-                                                // header("location:user_car.php");
+                                                echo "<script>
+                                                window.location.href =('user_car.php');
+                                                </script>";
                                             }
                                         }
                                         ?>
