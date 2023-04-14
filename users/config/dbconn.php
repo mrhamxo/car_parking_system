@@ -1,9 +1,5 @@
 <?php
-$host="localhost";
-$user="root";
-$password="";
-$db="car_parking_system";
-$conn=mysqli_connect($host,$user,$password,$db);
+$conn=mysqli_connect("localhost","root","","car_parking_system");
 if(!$conn){
 //header("Location: --/errors/db.php");
 die("Sorry Connection Error".mysqli_connect_error());

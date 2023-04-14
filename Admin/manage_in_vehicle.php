@@ -40,7 +40,7 @@ include('includes/sidebar.php');
                                 <thead>
                                     <tr>
                                     <tr>
-                                        <th>S.NO</th>
+                                        <th>Id</th>
                                         <th>Parking Number</th>
                                         <th>Owner Name</th>
                                         <th>Vehicle Reg Number</th>
@@ -48,12 +48,19 @@ include('includes/sidebar.php');
                                     </tr>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                <?php
+                                    $sql="SELECT * FROM `tblvehicle`";
+                                    $query=mysqli_query($conn,$sql);
+                                    $check=mysqli_fetch_array($query);
+                                    if($check>0){
+                                    while($row=mysqli_fetch_assoc($query)){
+                                    ?>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-
+                                    <td><?php echo $row['ID'];?></td>
+                                    <td><?php echo $row['ParkingNumber'];?></td>
+                                    <td><?php echo $row['OwnerName'];?></td>
+                                    <td><?php echo $row['RegistrationNumber'];?></td>
                                     <td><a href=""
                                             class="btn btn-primary">View</a>
 
@@ -64,6 +71,11 @@ include('includes/sidebar.php');
                                             onClick="return confirm('Are you sure you want to delete?')">Delete</a>
                                     </td>
                                 </tr>
+                                <?php
+                                    }
+                                }
+                                ?>
+                                </tbody>
                        </table>
                        </div>
                     </div>

@@ -17,7 +17,7 @@ if(isset($_POST['submit']))
     $query=mysqli_query($conn, "insert into  tblvehicle(ParkingNumber,VehicleCategory,VehicleCompanyname,RegistrationNumber,OwnerName,OwnerContactNumber) value('$parkingnumber','$catename','$vehcomp','$vehreno','$ownername','$ownercontno')");
     if ($query) {
 echo "<script>alert('Vehicle Entry Detail has been added');</script>";
-echo "<script>window.location.href ='manage-incomingvehicle.php'</script>";
+echo "<script>window.location.href ='manage_in_vehicle.php'</script>";
   }
   else
     {

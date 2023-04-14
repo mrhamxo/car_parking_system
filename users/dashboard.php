@@ -77,7 +77,7 @@ include('includes/topbar.php');
     while ($row = mysqli_fetch_assoc($res)) {
     ?>
                     <?php
-            if ($row['status'] == 1) {
+            if ($row['slot_status'] == '1') {
             ?>
                     <div class="col-2 p-4 pb-4 bg-danger text-white m-2 text-center">
                         <?php  echo $row['ID']."<br>"; ?>
@@ -87,12 +87,14 @@ include('includes/topbar.php');
                         <?php  echo $row['InTime']."<br>"; ?>
                         <?php  echo $row['slot_name']."<br>"; ?>
                     </div>
+
                     <?php
             } else {
             ?>
                     <div class="col-2 p-4 pb-4 bg-success text-white m-2 text-center">
-                       
+
                     </div>
+
                     <?php
             }
             ?>

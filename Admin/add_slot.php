@@ -84,8 +84,8 @@ if(isset($_POST['slot_btn'])){
                                         <div class="col-12 col-md-9">
                                             <select class="form-control" name="slot_status" required>
                                                 <option value="" selected>Select one</option>
-                                                <option value="active">active</option>
-                                                <option value="inactive">inactive</option>
+                                                <option value="1">1</option>
+                                                <option value="0">0</option>
                                             </select>
                                         </div>
                                     </div>

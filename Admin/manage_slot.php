@@ -43,9 +43,9 @@ include('includes/sidebar.php');
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            <th>Slot Id</th>
                                             <th>Slot Name</th>
-                                            <th>Acive</th>
-                                            <th>Availability</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -60,7 +60,7 @@ include('includes/sidebar.php');
                                                 <td><?php echo $row['slot_id']; ?></td>
                                                 <td><?php echo $row['slot_name']; ?></td>
                                                 <td>
-                                                    <?php if ($row['slot_status'] == 'active') { ?>
+                                                    <?php if ($row['slot_status'] == '1') { ?>
                                                         <span class="badge bg-warning p-2 text-white">Active</span>
                                                     <?php } else { ?>
                                                         <span class="badge bg-danger p-2 text-white">Inactive</span>
