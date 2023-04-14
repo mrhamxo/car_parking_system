@@ -62,7 +62,7 @@ include('includes/sidebar.php');
                             </thead>
                             <tbody>
                               <?php
-                              $sql = "SELECT * FROM `user` WHERE 1";
+                              $sql = "SELECT * FROM `user`";
                               $qry = mysqli_query($conn, $sql);
                               while ($row = mysqli_fetch_assoc($qry)) {
                               ?>

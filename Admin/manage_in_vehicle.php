@@ -43,6 +43,7 @@ include('includes/sidebar.php');
                                         <th>Id</th>
                                         <th>Parking Number</th>
                                         <th>Owner Name</th>
+                                        <th>parking_slot</th>
                                         <th>Vehicle Reg Number</th>
                                         <th>Action</th>
                                     </tr>
@@ -50,7 +51,10 @@ include('includes/sidebar.php');
                                 </thead>
                                 <tbody>
                                 <?php
-                                    $sql="SELECT * FROM `tblvehicle`";
+                                    $sql="SELECT tblvehicle.ID,tblvehicle.ParkingNumber,tblvehicle.OwnerName,park_slot.slot_id 
+                                    FROM tblvehicle
+                                    INNER JOIN park_slot
+                                    WHERE tblvehicle.parking_slot=park_slot.slot_id";
                                     $query=mysqli_query($conn,$sql);
                                     $check=mysqli_fetch_array($query);
                                     if($check>0){
@@ -60,6 +64,7 @@ include('includes/sidebar.php');
                                     <td><?php echo $row['ID'];?></td>
                                     <td><?php echo $row['ParkingNumber'];?></td>
                                     <td><?php echo $row['OwnerName'];?></td>
+                                    <td><?php echo $row['parking_slot'];?></td>
                                     <td><?php echo $row['RegistrationNumber'];?></td>
                                     <td><a href=""
                                             class="btn btn-primary">View</a>
