@@ -36,15 +36,15 @@ if(isset($_SESSION['user'])){
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Login Here!</h1>
                         </div>
-                        <form class="form pt-4" action="loginprocess.php" method="post" autocomplete="off">
+                        <form class="form pt-4" action="loginprocess.php" method="POST" autocomplete="off">
                             <div class="form-group">
                                 <label for="user_name">User Name</label>
-                                <input type="text" class="form-control" name="user" id="formGroupExampleInput"
+                                <input type="text" class="form-control" name="user" id="user_name"
                                     placeholder="Please Enter User Name">
                             </div>
                             <div class="form-group">
                                 <label for="Password">Password</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput2"
+                                <input type="text" class="form-control" id="Password"
                                     placeholder="Password" name="password"><br>
                                 <button type="submit" class="btn btn-primary" name="login">Login</button>
                             </div>

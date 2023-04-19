@@ -39,12 +39,12 @@ if(isset($_SESSION['admin'])){
                         <form class="form pt-4" action="loginprocess.php" method="post" autocomplete="off">
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" name="Email" id="formGroupExampleInput"
+                                <input type="text" class="form-control" name="email" id="email"
                                     placeholder="Email Address">
                             </div>
                             <div class="form-group">
                                 <label for="Password">Password</label>
-                                <input type="text" class="form-control" id="formGroupExampleInput2"
+                                <input type="text" class="form-control" id="Password"
                                     placeholder="Password" name="password"><br>
                                 <button type="submit" class="btn btn-primary" name="login">Login</button>
                             </div>

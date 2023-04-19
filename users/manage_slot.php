@@ -15,7 +15,7 @@ include('includes/sidebar.php');
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Manage Parking System</h1>
-                            
+
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right text-right">
@@ -35,12 +35,12 @@ include('includes/sidebar.php');
                                 <h6 class="m-0 font-weight-bold text-primary">
                                     <!-- Add slot Button -->
                                     <a href="add_slot.php" class="btn btn-primary float-right">
-                                        Add slot
+                                        Select slot
                                     </a>
                                 </h6>
                             </div>
                             <div class="card-body">
-                                <table class="table">
+                                <table class="table text-center">
                                     <thead>
                                         <tr>
                                             <th>Slot Id</th>
@@ -67,7 +67,14 @@ include('includes/sidebar.php');
                                                     <?php } ?>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary" name="delete" value="">Delete</a>
+                                                    <?php if ($row['slot_status'] == 'available') { ?>
+                                                        <button class="btn btn-primary" name="delete" value="">Select Slot</button>
+                                                    <?php
+                                                    } else { ?>
+                                                        <button disabled class="btn btn-primary" name="delete" value="">Select Slot</button>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </td>
                                             </tr>
                                         <?php
