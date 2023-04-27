@@ -60,14 +60,14 @@ include('includes/sidebar.php');
                                                 <td><?php echo $row['slot_id']; ?></td>
                                                 <td><?php echo $row['slot_name']; ?></td>
                                                 <td>
-                                                    <?php if ($row['slot_status'] == 'available') { ?>
+                                                    <?php if ($row['availability_status'] == 'available') { ?>
                                                         <span class="badge bg-warning p-2 text-white">available</span>
                                                     <?php } else { ?>
                                                         <span class="badge bg-danger p-2 text-white">unavailable</span>
                                                     <?php } ?>
                                                 </td>
                                                 <td>
-                                                    <?php if ($row['slot_status'] == 'available') { ?>
+                                                    <?php if ($row['availability_status'] == 'available') { ?>
                                                         <button class="btn btn-primary" name="delete" value="">Select Slot</button>
                                                     <?php
                                                     } else { ?>

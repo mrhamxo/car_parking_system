@@ -39,7 +39,7 @@ include('includes/sidebar.php');
                         while ($row = mysqli_fetch_assoc($res)) {
                         ?>
                             <?php
-                            if ($row['slot_status'] == 'unavailable') {
+                            if ($row['availability_status'] == 'unavailable') {
                             ?>
                                 <div class="col-2 p-4 bg-danger text-white m-2">
                                     <ul class="text-start">

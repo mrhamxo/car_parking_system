@@ -18,12 +18,12 @@ echo "<script>if(window.history.replaceState){
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h4 class="m-0"><strong>Manage</strong> Parking</h4>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right text-right">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="add_vehicle.php">Parking Slot</a></li>
+                                <li class="breadcrumb-item"><a href="add_vehicle.php">Manage Parking</a></li>
                                 <li class="breadcrumb-item active">Add Parking</li>
                             </ol>
                         </div><!-- /.col -->
@@ -40,8 +40,8 @@ echo "<script>if(window.history.replaceState){
                             <?php
                             if (isset($_POST['slot_btn'])) {
                                 $slot_name = $_POST['slot_name'];
-                                $availability_status = $_POST['availability_status'];
-                                $sql = "INSERT INTO `park_slot` (`slot_name`, `availability_status`) VALUES ('$slot_name', '$availability_status')";
+                                $slot_status = $_POST['slot_status'];
+                                $sql = "INSERT INTO `park_slot` (`slot_name`, `slot_status`) VALUES ('$slot_name', '$slot_status')";
                                 $result = mysqli_query($conn, $sql);
                                 if ($result) {
                                     echo "<script>
@@ -54,7 +54,7 @@ echo "<script>if(window.history.replaceState){
                                 <form action="" method="POST" class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Slot Name</label>
+                                            <label for="text-input" class=" form-control-label">Slot</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="catename" name="slot_name" class="form-control" placeholder="Enter Slot Name" required="true">
@@ -62,7 +62,7 @@ echo "<script>if(window.history.replaceState){
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Slot Status</label>
+                                            <label for="text-input" class=" form-control-label">Category</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <select class="form-control" name="slot_status" required>
@@ -86,6 +86,8 @@ echo "<script>if(window.history.replaceState){
         </div><!-- /.container-fluid -->
     </div>
 </div>
+
+
 <?php
 include('includes/footer.php');
 ?>
