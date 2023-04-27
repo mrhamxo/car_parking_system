@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(isset($_SESSION['user'])){
-  $user=$_SESSION['user'];
-}else{
-header('location:login.php');
+if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+} else {
+    header('location:login.php');
 }
 ?>
 <?php
@@ -23,7 +23,7 @@ include('includes/sidebar.php');
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item"><a href="logout.php">Logout</a></li>
                         <li class="breadcrumb-item active"><?php echo $user; ?></li>
                     </ol>

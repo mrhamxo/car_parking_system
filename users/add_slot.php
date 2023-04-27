@@ -1,12 +1,4 @@
 <?php
-session_start();
-if (isset($_SESSION['admin'])) {
-    $admin = $_SESSION['admin'];
-} else {
-    header('location:login.php');
-}
-?>
-<?php
 include('config/dbconn.php');
 include('includes/header.php');
 include('includes/topbar.php');
@@ -46,8 +38,8 @@ if(isset($_POST['slot_btn'])){
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right text-right">
-                                <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="add_vehicle.php">Parking Slot</a></li>
+                                <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                                <li class="breadcrumb-item"><a href="add_slot.php">Parking Slot</a></li>
                                 <li class="breadcrumb-item active">Add Parking Slot</li>
                             </ol>
                         </div><!-- /.col -->

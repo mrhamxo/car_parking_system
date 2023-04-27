@@ -71,6 +71,6 @@
   });
 </script>
   </footer>
-  </div>
+</div>
 </body>
 </html>
