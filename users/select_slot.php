@@ -1,12 +1,4 @@
 <?php
-session_start();
-if (isset($_SESSION['admin'])) {
-    $admin = $_SESSION['admin'];
-} else {
-    header('location:login.php');
-}
-?>
-<?php
 include('config/dbconn.php');
 include('includes/header.php');
 include('includes/topbar.php');
@@ -15,6 +7,22 @@ echo "<script>if(window.history.replaceState){
     window.history.replaceState(null,null,window.location.href);
     }  
     </script>";
+/*
+if(isset($_POST['slot_btn'])){
+   echo  $slot_name = $_POST['slot_name'];
+   echo  $slot_status = $_POST['slot_status'];
+    $sql = "INSERT INTO `park_slot`(`slot_name`, `slot_status`) VALUES ('$slot_name', '$slot_status')";
+    $result = mysqli_query($conn, $sql);
+    if ($result){
+        header("location:manage_slot.php");
+        // echo "Data inserted successfully";
+        // mysqli_close($conn);
+    } else {
+        die(mysqli_error($conn));
+    }
+    // header('location: add_slot.php');
+}
+*/
 ?>
 
 <!-- Content Wrapper. Contains page content -->
@@ -32,7 +40,7 @@ echo "<script>if(window.history.replaceState){
                             <ol class="breadcrumb float-sm-right text-right">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                                 <li class="breadcrumb-item"><a href="add_vehicle.php">Parking Slot</a></li>
-                                <li class="breadcrumb-item active">Add Parking</li>
+                                <li class="breadcrumb-item active">Add Parking Slot</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -43,13 +51,13 @@ echo "<script>if(window.history.replaceState){
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Add </strong>Parking
+                                <strong>Add </strong>Parking Slot
                             </div>
                             <?php
                             if (isset($_POST['slot_btn'])) {
                                 $slot_name = $_POST['slot_name'];
-                                $availability_status = $_POST['availability_status'];
-                                $sql = "INSERT INTO `park_slot` (`slot_name`, `availability_status`) VALUES ('$slot_name', '$availability_status')";
+                                $slot_status = $_POST['slot_status'];
+                                $sql = "INSERT INTO `park_slot` (`slot_name`, `slot_status`) VALUES ('$slot_name', '$slot_status')";
                                 $result = mysqli_query($conn, $sql);
                                 if ($result) {
                                     echo "<script>

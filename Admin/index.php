@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['admin'])) {
     $admin = $_SESSION['admin'];
 } else {
-    header('location:login.php');
+    header('location:login.php');       
 }
 ?>
 <?php
@@ -43,7 +43,7 @@ include('includes/sidebar.php');
                             <p>Total parking slot</p>
                             <?php
                             $sql = "SELECT
-                                COUNT(if(slot_status='active' && slot_status='inactive', 1, 0)) as slot
+                                COUNT(if(availability_status='active' && availability_status='inactive', 1, 0)) as slot
                                 FROM `park_slot`";
 
                             $result = mysqli_query($conn, $sql);
@@ -69,7 +69,7 @@ include('includes/sidebar.php');
                             <p>Available park slot</p>
                             <?php
                             $sql = "SELECT
-                                    COUNT(if(slot_status='active', 1, NULL)) as slot
+                                    COUNT(if(availability_status='active', 1, NULL)) as slot
                                     FROM `park_slot`";
 
                             $result = mysqli_query($conn, $sql);
@@ -95,7 +95,7 @@ include('includes/sidebar.php');
                             <p>Unavailable park slot</p>
                             <?php
                             $sql = "SELECT
-                                COUNT(if(slot_status='inactive', 0, NULL)) as slot
+                                COUNT(if(availability_status='inactive', 0, NULL)) as slot
                                 FROM `park_slot`";
 
                             $result = mysqli_query($conn, $sql);

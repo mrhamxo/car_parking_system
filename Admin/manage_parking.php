@@ -1,12 +1,4 @@
 <?php
-session_start();
-if (isset($_SESSION['admin'])) {
-    $admin = $_SESSION['admin'];
-} else {
-    header('location:login.php');
-}
-?>
-<?php
 include('config/dbconn.php');
 include('includes/header.php');
 include('includes/topbar.php');
@@ -51,10 +43,15 @@ include('includes/sidebar.php');
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Slot Id</th>
-                                            <th>Slot Name</th>
-                                            <th>Active</th>
-                                            <th>Availability</th>
+                                            <th>Parking code</th>
+                                            <th>Check-in</th>
+                                            <th>Check-out</th>
+                                            <th>Vechile type</th>
+                                            <th>Rate name</th>
+                                            <th>Slot</th>
+                                            <th>Total time</th>
+                                            <th>Total Amount</th>
+                                            <th>Paid Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -71,8 +68,8 @@ include('includes/sidebar.php');
                                                 <td>
                                                     <?php if ($row['active'] == 1) { ?>
                                                         <span class="badge badge-success">Yes</span>
-                                                        <?php } else { ?>
-                                                            <span class="badge badge-danger">No</span>
+                                                    <?php } else { ?>
+                                                        <span class="badge badge-danger">No</span>
                                                     <?php } ?>
                                                 </td>
                                                 <td>
