@@ -81,29 +81,6 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-table"></i>
             <p>
-              Parking Slot
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="add_slot.php" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>Add Slot</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="manage_slot.php" class="nav-link">
-                <i class="nav-icon fas fa-table"></i>
-                <p>Manage Slot</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-table"></i>
-            <p>
               Parking
               <i class="fas fa-angle-left right"></i>
             </p>
@@ -119,6 +96,29 @@
               <a href="manage_parking.php" class="nav-link">
                 <i class="nav-icon fas fa-table"></i>
                 <p>Manage Parking</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+              Parking Slot
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="add_slot.php" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>Add Slot</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="manage_slot.php" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>Manage Slot</p>
               </a>
             </li>
           </ul>

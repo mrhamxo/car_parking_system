@@ -12,18 +12,18 @@ if (isset($_POST['login'])) {
 
   $user_email = $result['email'];
 
-  if (mysqli_num_rows($check) > 0) {
+  // if (mysqli_num_rows($check) > 0) {
 
-    if ($result['user_type'] == '1') {
-      if ($result['admin_status'] == 1) {
-        session_start();
-        $_SESSION['admin'] = $user_email;
-        header('location:index.php');
-      } else {
-        echo "Please contact to admin section";
-      }
+  if ($result['user_type'] == '1') {
+    if ($result['admin_status'] == 1) {
+      session_start();
+      $_SESSION['admin'] = $user_email;
+      header('location:index.php');
+    } else {
+      echo "Please contact to admin section";
     }
   }
+  // }
 }
 
 

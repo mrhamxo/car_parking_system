@@ -38,42 +38,47 @@ echo "<script>if(window.history.replaceState){
                                 <strong>Add </strong>Parking
                             </div>
                             <?php
-                            if (isset($_POST['slot_btn'])) {
-                                $slot_name = $_POST['slot_name'];
-                                $slot_status = $_POST['slot_status'];
-                                $sql = "INSERT INTO `park_slot` (`slot_name`, `slot_status`) VALUES ('$slot_name', '$slot_status')";
+                            if (isset($_POST['park_btn'])) {
+                                $parking_name = $_POST['parking_name'];
+                                $location = $_POST['location'];
+                                $total_slot = $_POST['total_slot'];
+                                $sql = "INSERT INTO `parking` (`parking_name`, `total_slot`, `location`) VALUES ('$parking_name', '$total_slot', '$location')";
                                 $result = mysqli_query($conn, $sql);
-                                if ($result) {
-                                    echo "<script>
-                                 window.location.href =('manage_slot.php');
-                                 </script>";
-                                }
+                                // if ($result) {
+                                //     echo "<script>
+                                //  window.location.href =('manage_slot.php');
+                                //  </script>";
+                                // }
                             }
                             ?>
                             <div class="card-body card-block">
                                 <form action="" method="POST" class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Slot</label>
+                                            <label for="text-input" class=" form-control-label">Parking Name</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="catename" name="slot_name" class="form-control" placeholder="Enter Slot Name" required="true">
+                                            <input type="text" id="catename" name="parking_name" class="form-control" placeholder="Enter Park Name" required="true">
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Category</label>
+                                            <label for="text-input" class=" form-control-label">Total Slots</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <select class="form-control" name="slot_status" required>
-                                                <option value="" selected>Select one</option>
-                                                <option value="available">available</option>
-                                                <option value="unavailable">unavailable</option>
-                                            </select>
+                                            <input type="number" id="catename" name="total_slot" class="form-control" placeholder="Enter Total Slot in the Park" required="true">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">Location</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="catename" name="location" class="form-control" placeholder="Enter Park Location" required="true">
                                         </div>
                                     </div>
                                     <p style="text-align: center;">
-                                        <button type="submit" name="slot_btn" class="btn btn-primary btn-sm">Add</button>
+                                        <button type="submit" name="park_btn" class="btn btn-primary btn-sm">Add</button>
                                     </p>
                                 </form>
                             </div>

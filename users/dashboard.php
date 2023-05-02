@@ -49,14 +49,12 @@ include('includes/sidebar.php');
                             <?php echo $row['parking_address'] . "<br>"; ?>
                             <?php echo $row['parking_area'] . "<br>"; ?>
                         </div>
-
                     <?php
                     } else {
                     ?>
                         <div class="col-2 p-4 pb-4 bg-success text-white m-2 text-center">
                             <?php echo $row['slot_name'] . "<br>"; ?>
                         </div>
-
                     <?php
                     }
                     ?>
