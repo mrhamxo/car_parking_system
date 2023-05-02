@@ -11,60 +11,36 @@ include('includes/sidebar.php');
 ?>
 <div class="content-wrapper" style="background-color:rgb(254, 254, 255)">
     <div class="container">
+        <div class="row mr-4">
+            <div class="bg-success mt-4 ml-4 col-3 text-center pt-2" style="height:50px;width:200px">
+                Available
+            </div>
+            <div class="bg-danger mt-4 ml-4 col-3 pt-3 text-center" style="height:50px;width:200px">
+                Unavailable
+            </div>
+        </div>
         <div class="row mt-4 ml-4">
-            <div style="display:table;height:200px" class="col-3 ml-1">
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;" href="uet_slot.php"></a>
-            </div>
-            <div style="display:table;" class="col-3 ml-1">
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;" href="uet1_slot.php"></a>
-            </div>
-            <div style="display:table;" class="col-3 ml-1">
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;" href="uet2_slot.php"></a>
-            </div>
+            <?php
+            $sql="SELECT *
+            FROM parking
+            JOIN park_slot
+            ON parking.slot_id = park_slot.slot_id";
+            $res=mysqli_query($conn,$sql);
+            while($row=mysqli_fetch_assoc($res)){
+            ?>
             <div style="display:table;height:200px" class="col-3 ml-1 mt-4">
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;" href="uet3_slot.php"></a>
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
+                    href="uet_slot.php" class="text-light">
+                    <p><?php echo "Park Name: ".$row['parking_name'];?></p>
+                    <p><?php echo "Total Slots: ". $row['total_slots'];?></p>
+                </a>
             </div>
             <?php
             }
             ?>
         </div>
     </div>
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <?php
-                $sql1 = "SELECT *FROM user_car JOIN park_slot WHERE user_car.parking_slots=park_slot.slot_id;";
-                $res = mysqli_query($conn, $sql1);
-                while ($row = mysqli_fetch_assoc($res)) {
-                ?>
-                    <?php
-                    if ($row['availability_status'] == '0') {
-                    ?>
-                        <div class="col-2 p-4 pb-4 bg-danger text-white m-2 text-center">
-                            <?php echo $row['id'] . "<br>"; ?>
-                            <?php echo $row['slot_name'] . "<br>"; ?>
-                            <?php echo $row['parking_address'] . "<br>"; ?>
-                            <?php echo $row['parking_area'] . "<br>"; ?>
-                        </div>
-
-                    <?php
-                    } else {
-                    ?>
-                        <div class="col-2 p-4 pb-4 bg-success text-white m-2 text-center">
-                            <?php echo $row['slot_name'] . "<br>"; ?>
-                        </div>
-
-                    <?php
-                    }
-                    ?>
-
-                <?php
-                }
-
-                ?>
-    </section>
-</div><!-- /.container-fluid -->
+</div>
 </div>
 </div>
 <?php
