@@ -63,7 +63,7 @@ echo "<script>if(window.history.replaceState){
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Total Slots</label>
+                                            <label for="text-input" class=" form-control-label">Category</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="catename" name="total_slots" class="form-control" placeholder="Enter Total Slot in the Park" required="true">
@@ -78,7 +78,7 @@ echo "<script>if(window.history.replaceState){
                                         </div>
                                     </div>
                                     <p style="text-align: center;">
-                                        <button type="submit" name="park_btn" class="btn btn-primary btn-sm">Add</button>
+                                        <button type="submit" name="slot_btn" class="btn btn-primary btn-sm">Add</button>
                                     </p>
                                 </form>
                             </div>
