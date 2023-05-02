@@ -5,31 +5,38 @@ if (isset($_SESSION['user'])) {
 } else {
     header('location: login.php');
 }
-
 include('config/dbconn.php');
 include('includes/header.php');
-include('includes/topbar.php');
 include('includes/sidebar.php');
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                        <li class="breadcrumb-item"><a href="logout.php">Logout</a></li>
-                        <li class="breadcrumb-item active"><?php echo $user; ?></li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-
-        </div><!-- /.container-fluid -->
+<div class="content-wrapper" style="background-color:rgb(254, 254, 255)">
+    <div class="container">
+        <div class="row mr-4">
+            <div class="btn btn-success mt-4 ml-4 col-3">
+                Available
+            </div>
+            <div class="btn btn-danger mt-4 ml-4 col-3">
+                Unavailable
+            </div>
+        </div>
+        <div class="row mt-4 ml-4">
+            <div style="display:table;height:200px" class="col-3 ml-1">
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
+                    href="uet_slot.php"></a>
+            </div>
+            <div style="display:table;" class="col-3 ml-1">
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
+                    href="uet1_slot.php"></a>
+            </div>
+            <div style="display:table;" class="col-3 ml-1">
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
+                    href="uet2_slot.php"></a>
+            </div>
+            <div style="display:table;height:200px" class="col-3 ml-1 mt-4">
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
+                    href="uet3_slot.php"></a>
+            </div>
+        </div>
     </div>
     <!-- Main content -->
     <section class="content">
@@ -49,12 +56,14 @@ include('includes/sidebar.php');
                             <?php echo $row['parking_address'] . "<br>"; ?>
                             <?php echo $row['parking_area'] . "<br>"; ?>
                         </div>
+
                     <?php
                     } else {
                     ?>
                         <div class="col-2 p-4 pb-4 bg-success text-white m-2 text-center">
                             <?php echo $row['slot_name'] . "<br>"; ?>
                         </div>
+
                     <?php
                     }
                     ?>
