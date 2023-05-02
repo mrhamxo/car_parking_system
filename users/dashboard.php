@@ -21,20 +21,16 @@ include('includes/sidebar.php');
         </div>
         <div class="row mt-4 ml-4">
             <div style="display:table;height:200px" class="col-3 ml-1">
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
-                    href="uet_slot.php"></a>
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;" href="uet_slot.php"></a>
             </div>
             <div style="display:table;" class="col-3 ml-1">
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
-                    href="uet1_slot.php"></a>
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;" href="uet1_slot.php"></a>
             </div>
             <div style="display:table;" class="col-3 ml-1">
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
-                    href="uet2_slot.php"></a>
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;" href="uet2_slot.php"></a>
             </div>
             <div style="display:table;height:200px" class="col-3 ml-1 mt-4">
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
-                    href="uet3_slot.php"></a>
+                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;" href="uet3_slot.php"></a>
             </div>
         </div>
     </div>
