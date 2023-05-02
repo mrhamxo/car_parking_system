@@ -8,6 +8,11 @@ if (isset($_SESSION['user'])) {
 include('config/dbconn.php');
 include('includes/header.php');
 include('includes/sidebar.php');
+
+?>
+<?php
+$id=$_GET['id'];
+echo $id;
 ?>
 <div class="content-wrapper" style="background-color:rgb(254, 254, 255)">
     <div class="row mr-4">
