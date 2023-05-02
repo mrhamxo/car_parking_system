@@ -11,14 +11,6 @@ include('includes/sidebar.php');
 ?>
 <div class="content-wrapper" style="background-color:rgb(254, 254, 255)">
     <div class="container">
-        <div class="row mr-4">
-            <div class="btn btn-success mt-4 ml-4 col-3">
-                Available
-            </div>
-            <div class="btn btn-danger mt-4 ml-4 col-3">
-                Unavailable
-            </div>
-        </div>
         <div class="row mt-4 ml-4">
             <?php
             $sql="SELECT *
@@ -35,6 +27,9 @@ include('includes/sidebar.php');
                     <p><?php echo "Total Slots: ". $row['total_slots'];?></p>
                 </a>
             </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 </div>

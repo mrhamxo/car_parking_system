@@ -10,11 +10,11 @@ include('includes/header.php');
 include('includes/sidebar.php');
 ?>
 <div class="content-wrapper" style="background-color:rgb(254, 254, 255)">
-    <div class="row mr-4" style="margin:10px 0px 0px 50px">
-        <div class="bg-success mt-4 ml-4 col-3">
+    <div class="row mr-4">
+        <div class="bg-success mt-4 ml-4 col-3 text-center pt-2" style="height:50px;width:200px">
             Available
         </div>
-        <div class="bg-danger mt-4 ml-4 col-3">
+        <div class="bg-danger mt-4 ml-4 col-3 pt-2 text-center" style="height:50px;width:200px">
             Unavailable
         </div>
     </div>
