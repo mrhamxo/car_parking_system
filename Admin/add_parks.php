@@ -18,13 +18,13 @@ echo "<script>if(window.history.replaceState){
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h4 class="m-0"><strong>Manage</strong> Parking</h4>
+                            <h4 class="m-0"><strong>Manage</strong> Parks</h4>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right text-right">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="add_vehicle.php">Manage Parking</a></li>
-                                <li class="breadcrumb-item active">Add Parking</li>
+                                <li class="breadcrumb-item"><a href="add_vehicle.php">Manage Parks</a></li>
+                                <li class="breadcrumb-item active">Add Parks</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -35,30 +35,30 @@ echo "<script>if(window.history.replaceState){
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-header">
-                                <strong>Add </strong>Parking
+                                <strong>Add </strong>Parks
                             </div>
                             <?php
                             if (isset($_POST['park_btn'])) {
-                                $parking_name = $_POST['parking_name'];
+                                $park_name = $_POST['park_name'];
                                 $location = $_POST['location'];
-                                $total_slot = $_POST['total_slot'];
-                                $sql = "INSERT INTO `parking` (`parking_name`, `total_slot`, `location`) VALUES ('$parking_name', '$total_slot', '$location')";
+                                $total_slots = $_POST['total_slots'];
+                                $sql = "INSERT INTO `parks` (`park_name`, `total_slots`, `location`) VALUES ('{$park_name}', '{$total_slots}', '{$location}')";
                                 $result = mysqli_query($conn, $sql);
-                                // if ($result) {
-                                //     echo "<script>
-                                //  window.location.href =('manage_slot.php');
-                                //  </script>";
-                                // }
+                                if ($result) {
+                                    echo "<script>
+                                 window.location.href =('manage_parks.php');
+                                 </script>";
+                                }
                             }
                             ?>
                             <div class="card-body card-block">
                                 <form action="" method="POST" class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Parking Name</label>
+                                            <label for="text-input" class=" form-control-label">Park Name</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="catename" name="parking_name" class="form-control" placeholder="Enter Park Name" required="true">
+                                            <input type="text" id="catename" name="park_name" class="form-control" placeholder="Enter Park Name" required="true">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -66,7 +66,7 @@ echo "<script>if(window.history.replaceState){
                                             <label for="text-input" class=" form-control-label">Total Slots</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="catename" name="total_slot" class="form-control" placeholder="Enter Total Slot in the Park" required="true">
+                                            <input type="number" id="catename" name="total_slots" class="form-control" placeholder="Enter Total Slot in the Park" required="true">
                                         </div>
                                     </div>
                                     <div class="row form-group">
