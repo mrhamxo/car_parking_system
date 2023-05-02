@@ -36,9 +36,6 @@ include('includes/sidebar.php');
                 <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
                     href="uet3_slot.php"></a>
             </div>
-            <?php
-            }
-            ?>
         </div>
     </div>
     <!-- Main content -->
