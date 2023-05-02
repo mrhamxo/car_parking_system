@@ -1,13 +1,12 @@
 <?php
 session_start();
 if (isset($_SESSION['admin'])) {
-    $admin = $_SESSION['admin'];
+  $admin = $_SESSION['admin'];
 } else {
-    header('location:login.php');
+  header('location:login.php');
 }
 ?>
 <?php
-session_start();
 include('config/dbconn.php');
 include('includes/header.php');
 include('includes/topbar.php');

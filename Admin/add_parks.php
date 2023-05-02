@@ -46,8 +46,8 @@ echo "<script>if(window.history.replaceState){
                                 $result = mysqli_query($conn, $sql);
                                 if ($result) {
                                     echo "<script>
-                                 window.location.href =('manage_parks.php');
-                                 </script>";
+                                    window.location.href=('manage_parks.php');
+                                    </script>";
                                 }
                             }
                             ?>
@@ -63,10 +63,10 @@ echo "<script>if(window.history.replaceState){
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Category</label>
+                                            <label for="text-input" class=" form-control-label">Total Slots</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="number" id="catename" name="total_slots" class="form-control" placeholder="Enter Total Slot in the Park" required="true">
+                                            <input type="number" id="catename" name="total_slots" class="form-control" placeholder="Enter Total Slot" required="true">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -78,7 +78,7 @@ echo "<script>if(window.history.replaceState){
                                         </div>
                                     </div>
                                     <p style="text-align: center;">
-                                        <button type="submit" name="slot_btn" class="btn btn-primary btn-sm">Add</button>
+                                        <button type="submit" name="park_btn" class="btn btn-primary btn-sm">Add</button>
                                     </p>
                                 </form>
                             </div>
