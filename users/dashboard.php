@@ -25,15 +25,14 @@ include('includes/sidebar.php');
             $res=mysqli_query($conn,$sql);
             while($row=mysqli_fetch_assoc($res)){
             ?>
-            <div style="display:table;height:200px; display:table-cell;background-color:green;text-decoration:none;padding:50px; text-align:center"
-                class="col-3 ml-1 mt-4">
-                <p><?php echo "Park Name: ".$row['park_name'];?></p>
-                <p><?php echo "Total Slots: ". $row['total_slots'];?></p>
-                <p><?php echo "Location: ". $row['location'];?></p>
-                <a style="display:table-cell;background-color:green;text-decoration: none;padding:50px;text-align:center;"
-                    href="uet_slot.php?id=<?php echo $row['pid']?>" class="text-light">click
-                </a>
-            </div>
+            <a href="uet_slot.php?id=<?php echo $row['pid']?>"
+                class="card my-card bg-success m-4 text-center text-truncate" style="height:300px;width:250px">
+                <div class="card-body">
+                    <p><?php echo "<b>Park Name<hr></b>".$row['park_name'];?></p>
+                    <p><?php echo "<b>Total Slots<hr></b>". $row['total_slots'];?></p>
+                    <p><?php echo "<b>Location<hr></b>". $row['location'];?></p>
+                </div>
+            </a>
             <?php
             }
             ?>
