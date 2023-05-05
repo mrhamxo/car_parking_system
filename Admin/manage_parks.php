@@ -40,7 +40,9 @@ include('includes/sidebar.php');
                             </div>
                             <div class="card-body">
                                 <?php
-                                $sql = "SELECT * FROM `parks`";
+                                // $sql = "SELECT parks.total_slots,parks.pid,park_slot.slot_name FROM `parks` INNER JOIN `park_slot` ON parks.pid = park_slot.selected_park;";
+                                $sql = "SELECT *, COUNT(slot_name='selected_park') as all_slots FROM `parks` INNER JOIN `park_slot` ON parks.pid = park_slot.selected_park;";
+                            
                                 $res = mysqli_query($conn, $sql);
                                 if (mysqli_num_rows($res) > 0) {
                                 ?>
@@ -61,7 +63,7 @@ include('includes/sidebar.php');
                                                 <tr>
                                                     <td><?php echo $row['pid']; ?></td>
                                                     <td><?php echo $row['park_name']; ?></td>
-                                                    <td><?php echo $row['total_slots']; ?></td>
+                                                    <td><?php echo $row['all_slots']; ?></td>
                                                     <td><?php echo $row['location']; ?></td>
                                                     <td>
                                                         <?php

@@ -61,14 +61,14 @@ echo "<script>if(window.history.replaceState){
                                             <input type="text" id="catename" name="park_name" class="form-control" placeholder="Enter Park Name" required="true">
                                         </div>
                                     </div>
-                                    <div class="row form-group">
+                                    <!-- <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">Total Slots</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="number" id="catename" name="total_slots" class="form-control" placeholder="Enter Total Slot" required="true">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">Location</label>
