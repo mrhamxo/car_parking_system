@@ -40,10 +40,10 @@ include('includes/sidebar.php');
                             </div>
                             <div class="card-body">
                                 <?php
-                                // $sql = "SELECT parks.total_slots,parks.pid,park_slot.slot_name FROM `parks` INNER JOIN `park_slot` ON parks.pid = park_slot.selected_park;";
-                                $sql = "SELECT *, COUNT(slot_name='selected_park') as all_slots FROM `parks` INNER JOIN `park_slot` ON parks.pid = park_slot.selected_park;";
-                            
+                                $sql = "SELECT * FROM `parks` ORDER BY parks.pid;";
+
                                 $res = mysqli_query($conn, $sql);
+
                                 if (mysqli_num_rows($res) > 0) {
                                 ?>
                                     <table class="table">
@@ -52,8 +52,9 @@ include('includes/sidebar.php');
                                                 <th>S No:</th>
                                                 <th>Park name</th>
                                                 <th>Total Slots</th>
-                                                <th>Location</th>
+                                                <th>Address</th>
                                                 <th>Status</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -63,11 +64,32 @@ include('includes/sidebar.php');
                                                 <tr>
                                                     <td><?php echo $row['pid']; ?></td>
                                                     <td><?php echo $row['park_name']; ?></td>
-                                                    <td><?php echo $row['all_slots']; ?></td>
-                                                    <td><?php echo $row['location']; ?></td>
                                                     <td>
                                                         <?php
-                                                        // $row = 0;
+
+                                                        $sql1 = "SELECT COUNT(selected_park) as all_slots FROM park_slot WHERE selected_park='{$row['pid']}'";
+                                                        $res1 = mysqli_query($conn, $sql1);
+                                                        if (mysqli_num_rows($res1) > 0) {
+                                                            while ($row1 = mysqli_fetch_assoc($res1)) {
+                                                        ?>
+
+                                                                <?php
+                                                                if ($row1['all_slots'] == 0) {
+
+                                                                    echo 'no slot';
+                                                                }
+                                                                else{
+                                                                    echo $row1['all_slots'];
+                                                                }
+                                                                ?>
+                                                        <?php
+                                                            }
+                                                        }
+                                                        ?>
+                                                    </td>
+                                                    <td><?php echo $row['address']; ?></td>
+                                                    <td>
+                                                        <?php
                                                         if ($row) {
                                                         ?>
                                                             <span class="badge badge-success">Available</span>
@@ -79,9 +101,9 @@ include('includes/sidebar.php');
                                                         }
                                                         ?>
                                                     </td>
-                                                    <!-- <td>
-                                                        <a href="#" class="btn btn-primary" name="delete" value="">Delete</a>
-                                                    </td> -->
+                                                    <td>
+                                                        <a href="edit_park.php?id=<?php echo $row['pid'] ?>" class="btn btn-primary" value="">Edit </a>
+                                                    </td>
                                                 </tr>
                                             <?php
                                             }

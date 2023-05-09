@@ -62,6 +62,7 @@ include('includes/sidebar.php');
                                         <?php
                                         // $sql = "SELECT * FROM `park_slot`";
                                         $sql = "SELECT * FROM park_slot JOIN parks WHERE park_slot.selected_park = parks.pid";
+                                     
                                         $res = mysqli_query($conn, $sql);
                                         while ($row = mysqli_fetch_assoc($res)) {
                                         ?>
@@ -70,14 +71,14 @@ include('includes/sidebar.php');
                                                 <td><?php echo $row['slot_name']; ?></td>
                                                 <td><?php echo $row['park_name']; ?></td>
                                                 <td>
-                                                    <?php if ($row['availability_status'] == 1) { ?>
-                                                        <span class="badge bg-warning p-2 text-white">available</span>
+                                                    <?php if ($row['availability_status'] == 'available') { ?>
+                                                        <span class="badge bg-green p-2 text-white">available</span>
                                                     <?php } else { ?>
                                                         <span class="badge bg-danger p-2 text-white">unavailable</span>
                                                     <?php } ?>
                                                 </td>
                                                 <td>
-                                                    <a href="#" class="btn btn-primary" name="delete" value="">Delete</a>
+                                                    <a href="edit_slot.php?id=<?php echo $row['slot_id'] ?>" class="btn btn-primary" value="">Edit </a>
                                                 </td>
                                             </tr>
                                         <?php

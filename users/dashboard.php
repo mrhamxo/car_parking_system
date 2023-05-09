@@ -30,7 +30,7 @@ include('includes/sidebar.php');
                 <div class="card-body">
                     <p><?php echo "<b>Park Name<hr></b>".$row['park_name'];?></p>
                     <p><?php echo "<b>Total Slots<hr></b>". $row['total_slots'];?></p>
-                    <p><?php echo "<b>Location<hr></b>". $row['location'];?></p>
+                    <p><?php echo "<b>Address<hr></b>". $row['address'];?></p>
                 </div>
             </a>
             <?php

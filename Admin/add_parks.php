@@ -40,9 +40,9 @@ echo "<script>if(window.history.replaceState){
                             <?php
                             if (isset($_POST['park_btn'])) {
                                 $park_name = $_POST['park_name'];
-                                $location = $_POST['location'];
+                                $address = $_POST['address'];
                                 $total_slots = $_POST['total_slots'];
-                                $sql = "INSERT INTO `parks` (`park_name`, `total_slots`, `location`) VALUES ('{$park_name}', '{$total_slots}', '{$location}')";
+                                $sql = "INSERT INTO `parks` (`park_name`, `total_slots`, `address`) VALUES ('{$park_name}', '{$total_slots}', '{$address}')";
                                 $result = mysqli_query($conn, $sql);
                                 if ($result) {
                                     echo "<script>
@@ -71,10 +71,10 @@ echo "<script>if(window.history.replaceState){
                                     </div> -->
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Location</label>
+                                            <label for="text-input" class=" form-control-label">Address</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="catename" name="location" class="form-control" placeholder="Enter Park Location" required="true">
+                                            <input type="text" id="catename" name="address" class="form-control" placeholder="Enter Park Address" required="true">
                                         </div>
                                     </div>
                                     <p style="text-align: center;">

@@ -32,7 +32,7 @@ echo "<script>if(window.history.replaceState){
                             <ol class="breadcrumb float-sm-right text-right">
                                 <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
                                 <li class="breadcrumb-item"><a href="add_vehicle.php">Parking Slot</a></li>
-                                <li class="breadcrumb-item active">Add SLots</li>
+                                <li class="breadcrumb-item active">Add Slots</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
