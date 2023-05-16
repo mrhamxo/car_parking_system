@@ -46,7 +46,7 @@ echo "<script>if(window.history.replaceState){
                                 while ($row = mysqli_fetch_assoc($result)) {
                             ?>
                                     <div class="card-body card-block">
-                                        <form action="update_data.php" method="POST" class="form-horizontal">
+                                        <form action="update_park.php" method="POST" class="form-horizontal">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Park Name</label>

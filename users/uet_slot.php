@@ -31,22 +31,22 @@ include('includes/sidebar.php');
         $sql = "SELECT parks.park_name,park_slot.slot_name,park_slot.availability_status FROM parks INNER JOIN park_slot ON parks.pid=park_slot.selected_park WHERE park_slot.selected_park=$id";
         $res = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_assoc($res)) {
-            if ($row['availability_status'] == "available") {
+            if ($row['availability_status'] == "0") {
         ?>
-                <div class="card my-card bg-green m-4 text-center text-truncate" style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
-                    <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
-                    <hr>
-                    <p><?php echo "<b>Selected Park</b><br>" . $row['park_name']; ?></p>
-                    <hr>
-                </div>
-            <?php
+        <div class="card my-card bg-green m-4 text-center text-truncate"
+            style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
+            <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
+            <hr>
+        </div>
+        <?php
             } else { ?>
-                <div class="card my-card bg-danger m-4 text-center text-truncate" style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
-                    <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
-                    <hr>
-                    <p><?php echo "<b>Selected Park</b><br>" . $row['park_name']; ?></p>
-                    <hr>
-                </div>
+        <div class="card my-card bg-danger m-4 text-center text-truncate"
+            style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
+            <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
+            <hr>
+            <p><?php echo "<b>Selected Park</b><br>" . $row['park_name']; ?></p>
+            <hr>
+        </div>
         <?php }
         } ?>
     </div>

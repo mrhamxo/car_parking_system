@@ -54,13 +54,13 @@ echo "<script>if(window.history.replaceState){
                                 while ($row = mysqli_fetch_assoc($result)) {
                             ?>
                             <div class="card-body card-block">
-                                <form action="update_data.php" method="POST" class="form-horizontal">
+                                <form action="update_slot.php" method="POST" class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">Slot Name</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="hidden" id="" name="" class="form-control"
+                                            <input type="hidden" id="" name="slot_id" class="form-control"
                                                 value="<?php echo $row['slot_id'] ?>">
                                             <input type="text" id="catename" name="slot_name"
                                                 value="<?php echo $row['slot_name'] ?>" class="form-control"
