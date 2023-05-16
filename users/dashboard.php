@@ -21,18 +21,29 @@ include('includes/sidebar.php');
         </div>
         <div class="row mt-4 ml-4">
             <?php
-            $sql="SELECT *FROM parks";
-            $res=mysqli_query($conn,$sql);
-            while($row=mysqli_fetch_assoc($res)){
+            $sql = "SELECT *FROM parks";
+            $res = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($res)) {
             ?>
-            <a href="uet_slot.php?id=<?php echo $row['pid']?>"
-                class="card my-card bg-success m-4 text-center text-truncate" style="height:300px;width:250px">
-                <div class="card-body">
-                    <p><?php echo "<b>Park Name<hr></b>".$row['park_name'];?></p>
-                    <p><?php echo "<b>Total Slots<hr></b>". $row['total_slots'];?></p>
-                    <p><?php echo "<b>Address<hr></b>". $row['address'];?></p>
-                </div>
-            </a>
+                <a href="uet_slot.php?id=<?php echo $row['pid'] ?>" class="card my-card bg-success m-4 text-center text-truncate" style="height:300px;width:250px">
+                    <div class="card-body">
+                        <p><?php echo "<b>Park Name<hr></b>" . $row['park_name']; ?></p>
+                        <p>
+                            <?php
+                            $sql1 = "SELECT COUNT(selected_park) as all_slots FROM park_slot WHERE selected_park='{$row['pid']}'";
+                            $res1 = mysqli_query($conn, $sql1);
+                            if (mysqli_num_rows($res1) > 0) {
+                                while ($row1 = mysqli_fetch_assoc($res1)) {
+                            ?>
+                                    <?php echo "<b>Total Slots<hr></b>" . $row1['all_slots']; ?>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </p>
+                        <p><?php echo "<b>Address<hr></b>" . $row['address']; ?></p>
+                    </div>
+                </a>
             <?php
             }
             ?>
