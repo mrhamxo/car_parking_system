@@ -53,23 +53,26 @@ echo "<script>if(window.history.replaceState){
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
                             ?>
-                                    <div class="card-body card-block">
-                                        <form action="update_data.php" method="POST" class="form-horizontal">
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Slot Name</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="hidden" id="" name="" class="form-control" value="<?php echo $row['slot_id'] ?>">
-                                                    <input type="text" id="catename" name="slot_name" value="<?php echo $row['slot_name'] ?>" class="form-control" placeholder="Enter Slot Name" required="true">
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Select Park</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <?php
+                            <div class="card-body card-block">
+                                <form action="update_data.php" method="POST" class="form-horizontal">
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">Slot Name</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="hidden" id="" name="" class="form-control"
+                                                value="<?php echo $row['slot_id'] ?>">
+                                            <input type="text" id="catename" name="slot_name"
+                                                value="<?php echo $row['slot_name'] ?>" class="form-control"
+                                                placeholder="Enter Slot Name" required="true">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">Select Park</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <?php
                                                     $sql1 = "SELECT * FROM parks";
                                                     $result1 = mysqli_query($conn, $sql1);
 
@@ -87,25 +90,27 @@ echo "<script>if(window.history.replaceState){
                                                         echo "</select>";
                                                     }
                                                     ?>
-                                                </div>
-                                            </div>
-                                            <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Slot Availability</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select class="form-control" name="slot_status" required>
-                                                        <option selected disabled>Select one</option>
-                                                        <option value="available">Available</option>
-                                                        <option value="unavailable">Unavailable</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <p style="text-align: center;">
-                                                <button type="submit" name="slot_btn" class="btn btn-primary btn-sm">Add</button>
-                                            </p>
-                                        </form>
+                                        </div>
                                     </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">Slot
+                                                Availability</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <select class="form-control" name="slot_status" required>
+                                                <option selected disabled>Select one</option>
+                                                <option value="0">Available</option>
+                                                <option value="1">Unavailable</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <p style="text-align: center;">
+                                        <button type="submit" name="update_btn"
+                                            class="btn btn-primary btn-sm">Update</button>
+                                    </p>
+                                </form>
+                            </div>
                             <?php
                                 }
                             }

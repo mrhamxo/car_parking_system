@@ -10,10 +10,6 @@ include('includes/header.php');
 include('includes/sidebar.php');
 
 ?>
-<?php
-$id=$_GET['id'];
-echo $id;
-?>
 <div class="content-wrapper" style="background-color:rgb(254, 254, 255)">
     <div class="row mr-4">
         <div class="bg-success mt-4 ml-4 col-3 text-center pt-2" style="height:50px;width:200px">
@@ -23,48 +19,39 @@ echo $id;
             Unavailable
         </div>
     </div>
-    <?php 
-    $check=1;
-    if($check == 1){
-    ?>
-    <div class="conatiner" style="margin:20px 0px 0px 50px;background-attachment:fixed;width:900px">
-        <div class="row">
-            <div class="col-3 mr-4 mt-4 bg-success" style="border:2px solid red;width:300px;height:300px">
-
-            </div>
-            <div class="col-3 mr-4 mt-4 bg-success" style="border:2px solid red;width:300px;height:300px">
-
-            </div>
-            <div class="col-3 mr-4 mt-4 bg-success" style="border:2px solid red;width:300px;height:300px">
-
-            </div>
-            <div class="col-3 mr-4 mt-4 mb-4 bg-success" style="border:2px solid red;width:300px;height:300px">
-
-            </div>
-        </div>
-    </div>
     <?php
-    }else{
-    ?>
-    <div class="conatiner" style="margin:50px 0px 0px 50px;background-attachment:fixed;width:900px">
-        <div class="row">
-            <div class="col-3 mr-4 mt-4 bg-danger" style="border:2px solid red;width:300px;height:300px">
-
-            </div>
-            <div class="col-3 mr-4 mt-4 bg-danger" style="border:2px solid red;width:300px;height:300px">
-
-            </div>
-            <div class="col-3 mr-4 mt-4 bg-danger" style="border:2px solid red;width:300px;height:300px">
-
-            </div>
-            <div class="col-3 mr-4 mt-4 mb-4 bg-danger" style="border:2px solid red;width:300px;height:300px">
-
-            </div>
+    //$id=$_GET['id'];
+    // $check=1;
+    // if($check == 1){
+    // ?>
+    <div class="row mt-4 ml-4">
+        <?php
+             $id=$_GET['id'];
+             $sql="SELECT parks.park_name,park_slot.slot_name,park_slot.availability_status FROM parks INNER JOIN park_slot ON parks.pid=park_slot.selected_park WHERE park_slot.selected_park=$id";
+             $res=mysqli_query($conn,$sql);
+            while($row=mysqli_fetch_assoc($res)){
+            if($row['availability_status']=="available"){
+            ?>
+        <div class="card my-card bg-danger m-4 text-center text-truncate"
+            style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
+            <p><?php echo "<b>Slot Name</b><br>".$row['slot_name'];?></p>
+            <hr>
+            <p><?php echo "<b>Selected Park</b><br>". $row['park_name'];?></p>
+            <hr>
         </div>
+        <?php
+            }else{?>
+        <div class="card my-card bg-success m-4 text-center text-truncate"
+            style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
+            <p><?php //echo "<b>Slot Name</b><br>".$row['slot_name'];?></p>
+            <hr>
+            <p><?php //echo "<b>Selected Park</b><br>". $row['selected_park'];?></p>
+            <hr>
+        </div>
+        <?php }
+    }?>
     </div>
-    <?php
-    }
-    ?>
+</div>
 </div>
 </div>
 </div>

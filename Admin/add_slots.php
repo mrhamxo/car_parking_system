@@ -97,8 +97,8 @@ echo "<script>if(window.history.replaceState){
                                         <div class="col-12 col-md-9">
                                             <select class="form-control" name="slot_status" required>
                                                 <option value="" selected disabled>Select one</option>
-                                                <option value="available">available</option>
-                                                <option value="unavailable">unavailable</option>
+                                                <option value="0">Available</option>
+                                                <option value="1">Unavailable</option>
                                             </select>
                                         </div>
                                     </div>

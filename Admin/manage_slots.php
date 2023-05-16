@@ -66,21 +66,22 @@ include('includes/sidebar.php');
                                         $res = mysqli_query($conn, $sql);
                                         while ($row = mysqli_fetch_assoc($res)) {
                                         ?>
-                                            <tr>
-                                                <td><?php echo $row['slot_id']; ?></td>
-                                                <td><?php echo $row['slot_name']; ?></td>
-                                                <td><?php echo $row['park_name']; ?></td>
-                                                <td>
-                                                    <?php if ($row['availability_status'] == 'available') { ?>
-                                                        <span class="badge bg-green p-2 text-white">available</span>
-                                                    <?php } else { ?>
-                                                        <span class="badge bg-danger p-2 text-white">unavailable</span>
-                                                    <?php } ?>
-                                                </td>
-                                                <td>
-                                                    <a href="edit_slot.php?id=<?php echo $row['slot_id'] ?>" class="btn btn-primary" value="">Edit </a>
-                                                </td>
-                                            </tr>
+                                        <tr>
+                                            <td><?php echo $row['slot_id']; ?></td>
+                                            <td><?php echo $row['slot_name']; ?></td>
+                                            <td><?php echo $row['park_name']; ?></td>
+                                            <td>
+                                                <?php if ($row['availability_status'] == '0') { ?>
+                                                <span class="badge bg-green p-2 text-white">Available</span>
+                                                <?php } else { ?>
+                                                <span class="badge bg-danger p-2 text-white">Unavailable</span>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <a href="edit_slot.php?id=<?php echo $row['slot_id'] ?>"
+                                                    class="btn btn-primary" value="">Edit </a>
+                                            </td>
+                                        </tr>
                                         <?php
                                         }
                                         ?>

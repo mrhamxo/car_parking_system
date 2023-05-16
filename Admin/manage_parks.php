@@ -46,26 +46,26 @@ include('includes/sidebar.php');
 
                                 if (mysqli_num_rows($res) > 0) {
                                 ?>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>S No:</th>
-                                                <th>Park name</th>
-                                                <th>Total Slots</th>
-                                                <th>Address</th>
-                                                <th>Status</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>S No:</th>
+                                            <th>Park name</th>
+                                            <th>Total Slots</th>
+                                            <th>Address</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
                                             while ($row = mysqli_fetch_assoc($res)) {
                                             ?>
-                                                <tr>
-                                                    <td><?php echo $row['pid']; ?></td>
-                                                    <td><?php echo $row['park_name']; ?></td>
-                                                    <td>
-                                                        <?php
+                                        <tr>
+                                            <td><?php echo $row['pid']; ?></td>
+                                            <td><?php echo $row['park_name']; ?></td>
+                                            <td>
+                                                <?php
 
                                                         $sql1 = "SELECT COUNT(selected_park) as all_slots FROM park_slot WHERE selected_park='{$row['pid']}'";
                                                         $res1 = mysqli_query($conn, $sql1);
@@ -73,7 +73,7 @@ include('includes/sidebar.php');
                                                             while ($row1 = mysqli_fetch_assoc($res1)) {
                                                         ?>
 
-                                                                <?php
+                                                <?php
                                                                 if ($row1['all_slots'] == 0) {
 
                                                                     echo 'no slot';
@@ -82,34 +82,35 @@ include('includes/sidebar.php');
                                                                     echo $row1['all_slots'];
                                                                 }
                                                                 ?>
-                                                        <?php
+                                                <?php
                                                             }
                                                         }
                                                         ?>
-                                                    </td>
-                                                    <td><?php echo $row['address']; ?></td>
-                                                    <td>
-                                                        <?php
+                                            </td>
+                                            <td><?php echo $row['address']; ?></td>
+                                            <td>
+                                                <?php
                                                         if ($row) {
                                                         ?>
-                                                            <span class="badge badge-success">Available</span>
-                                                        <?php
+                                                <span class="badge badge-success">Available</span>
+                                                <?php
                                                         } else {
                                                         ?>
-                                                            <span class="badge badge-danger">Unavailable</span>
-                                                        <?php
+                                                <span class="badge badge-danger">Unavailable</span>
+                                                <?php
                                                         }
                                                         ?>
-                                                    </td>
-                                                    <td>
-                                                        <a href="edit_park.php?id=<?php echo $row['pid'] ?>" class="btn btn-primary" value="">Edit </a>
-                                                    </td>
-                                                </tr>
-                                            <?php
+                                            </td>
+                                            <td>
+                                                <a href="edit_park.php?id=<?php echo $row['pid'] ?>"
+                                                    class="btn btn-primary" value="">Edit </a>
+                                            </td>
+                                        </tr>
+                                        <?php
                                             }
                                             ?>
-                                        </tbody>
-                                    </table>
+                                    </tbody>
+                                </table>
                                 <?php
                                 } else {
                                     echo "<h2 class='text-center'>No Record Found</h2>";
