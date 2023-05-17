@@ -54,7 +54,7 @@ include('includes/sidebar.php');
                                             <th>S No:</th>
                                             <th>Slot Name</th>
                                             <th>Selected Park</th>
-                                            <th>Availability</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -62,26 +62,32 @@ include('includes/sidebar.php');
                                         <?php
                                         // $sql = "SELECT * FROM `park_slot`";
                                         $sql = "SELECT * FROM park_slot JOIN parks WHERE park_slot.selected_park = parks.pid";
-                                     
+
                                         $res = mysqli_query($conn, $sql);
                                         while ($row = mysqli_fetch_assoc($res)) {
                                         ?>
-                                        <tr>
-                                            <td><?php echo $row['slot_id']; ?></td>
-                                            <td><?php echo $row['slot_name']; ?></td>
-                                            <td><?php echo $row['park_name']; ?></td>
-                                            <td>
-                                                <?php if ($row['availability_status'] == '0') { ?>
-                                                <span class="badge bg-green p-2 text-white">Available</span>
-                                                <?php } else { ?>
-                                                <span class="badge bg-danger p-2 text-white">Unavailable</span>
-                                                <?php } ?>
-                                            </td>
-                                            <td>
-                                                <a href="edit_slot.php?id=<?php echo $row['slot_id'] ?>"
-                                                    class="btn btn-primary" value="">Edit </a>
-                                            </td>
-                                        </tr>
+                                            <tr>
+                                                <td><?php echo $row['slot_id']; ?></td>
+                                                <td><?php echo $row['slot_name']; ?></td>
+                                                <td><?php echo $row['park_name']; ?></td>
+                                                <td>
+                                                    <div class="custom-control custom-switch">
+                                                        <input type="checkbox" class="custom-control-input" id="<?Php echo $row['slot_id'] ?>" <?php if ($row['availability_status'] == '1') { echo "checked";} ?> onclick="toggleStatus(<?php echo $row['slot_id'] ?>)">
+                                                        <label class="custom-control-label" for="<?Php echo $row['slot_id'] ?>"></label>
+                                                    </div>
+                                                    <?php // if ($row['availability_status'] == '0') { 
+                                                    ?>
+                                                    <!-- <span class="badge bg-green p-2 text-white">Available</span> -->
+                                                    <?php // } else { 
+                                                    ?>
+                                                    <!-- <span class="badge bg-danger p-2 text-white">Unavailable</span> -->
+                                                    <?php // } 
+                                                    ?>
+                                                </td>
+                                                <td>
+                                                    <a href="edit_slot.php?id=<?php echo $row['slot_id'] ?>" class="btn btn-primary" value="">Edit </a>
+                                                </td>
+                                            </tr>
                                         <?php
                                         }
                                         ?>
@@ -99,3 +105,22 @@ include('includes/sidebar.php');
 <?php
 include('includes/footer.php');
 ?>
+<script>
+    function toggleStatus(id) {
+        var id = id;
+        $.ajax({
+            url: "slot_toggle.php",
+            type: "POST",
+            data: {
+                slot_toggleId: id,
+            },
+            success: function(result) {
+                if (result == '1') {
+                    swal("DONE!", "Status is ON", "success");
+                } else {
+                    swal("DONE!", "Status is OFF", "success");
+                }
+            },
+        });
+    }
+</script>

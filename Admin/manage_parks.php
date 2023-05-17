@@ -126,10 +126,10 @@ include('includes/footer.php');
 function toggleStatus(id) {
      var id = id;
     $.ajax({
-        url: "toggle.php",
+        url: "park_toggle.php",
         type: "POST",
         data: {
-            toggleId: id,
+            park_toggleId: id,
         },
         success: function(result) {
             if (result == '1') {
