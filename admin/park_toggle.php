@@ -8,11 +8,11 @@ $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_assoc($result);
 $status = $data['p_status'];
 
-if($status == '1'){
-    $status = '0';
+if($status == '0'){
+    $status = '1';
 }
 else{
-    $status = '1';
+    $status = '0';
 }
 
 $update = "UPDATE parks SET p_status = '$status' WHERE pid = $park_toggleId";

@@ -8,11 +8,11 @@ $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_assoc($result);
 $status = $data['availability_status'];
 
-if($status == '1'){
-    $status = '0';
+if($status == '0'){
+    $status = '1';
 }
 else{
-    $status = '1';
+    $status = '0';
 }
 
 $update = "UPDATE park_slot SET availability_status = '$status' WHERE slot_id = $slot_toggleId";

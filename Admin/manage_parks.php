@@ -89,7 +89,7 @@ include('includes/sidebar.php');
                                             <td>
                                                 <div class="custom-control custom-switch">
                                                     <input type="checkbox" class="custom-control-input" id="<?Php echo $row['pid']?>"
-                                                        <?php if ($row['p_status'] == '1') { echo "checked"; } ?>
+                                                        <?php if ($row['p_status'] == '0') { echo "checked"; } ?>
                                                         onclick="toggleStatus(<?php echo $row['pid'] ?>)">
                                                     <label class="custom-control-label" for="<?Php echo $row['pid']?>"></label>
                                                 </div>
@@ -132,7 +132,7 @@ function toggleStatus(id) {
             park_toggleId: id,
         },
         success: function(result) {
-            if (result == '1') {
+            if (result == '0') {
                 swal("DONE!", "Status is ON", "success");
             } else {
                 swal("DONE!", "Status is OFF", "success");

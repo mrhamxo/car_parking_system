@@ -54,7 +54,7 @@ include('includes/sidebar.php');
                                             <th>S No:</th>
                                             <th>Slot Name</th>
                                             <th>Selected Park</th>
-                                            <th>Status</th>
+                                            <th>Status </th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -72,7 +72,7 @@ include('includes/sidebar.php');
                                                 <td><?php echo $row['park_name']; ?></td>
                                                 <td>
                                                     <div class="custom-control custom-switch">
-                                                        <input type="checkbox" class="custom-control-input" id="<?Php echo $row['slot_id'] ?>" <?php if ($row['availability_status'] == '1') { echo "checked";} ?> onclick="toggleStatus(<?php echo $row['slot_id'] ?>)">
+                                                        <input type="checkbox" class="custom-control-input" id="<?Php echo $row['slot_id'] ?>" <?php if ($row['availability_status'] == '0') { echo "checked";} ?> onclick="toggleStatus(<?php echo $row['slot_id'] ?>)">
                                                         <label class="custom-control-label" for="<?Php echo $row['slot_id'] ?>"></label>
                                                     </div>
                                                     <?php // if ($row['availability_status'] == '0') { 
@@ -115,7 +115,7 @@ include('includes/footer.php');
                 slot_toggleId: id,
             },
             success: function(result) {
-                if (result == '1') {
+                if (result == '0') {
                     swal("DONE!", "Status is ON", "success");
                 } else {
                     swal("DONE!", "Status is OFF", "success");
