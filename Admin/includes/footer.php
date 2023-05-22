@@ -53,9 +53,10 @@
     <script src="assets/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="assets/dist/js/pages/dashboard.js"></script>
-    
     <!-- Sweet Alert demo -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <!-- google map api -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGdcSfLwqmDVg_HLbYAJo0qkbElSM5_fc&callback=initAutocomplete&libraries=places&v=weekly"></script>
     <script>
       $(function() {
         $("#mymodal").DataTable({
