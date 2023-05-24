@@ -25,6 +25,12 @@
                         Dashboard
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="select_slots.php" class="nav-link">
+                        <i class="nav-icon fa fa-car"></i>
+                        <p>Select Slots</p>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>

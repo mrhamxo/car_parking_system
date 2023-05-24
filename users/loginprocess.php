@@ -18,9 +18,12 @@ if (isset($_POST['login'])) {
 
         session_start();
         $_SESSION['user'] = $user_name;
-        header('location:dashboard.php');
+        header('location:./dashboard.php');
       } else {
-        echo "Please contact to admin section";
+        echo "<script>window.location.replace('./login.php');
+              alert('Please Contact With Admin Sahab');        
+              </script>";
+        //header('location:./login.php');
       }
     }
   }

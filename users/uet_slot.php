@@ -37,6 +37,7 @@ include('includes/sidebar.php');
             style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
             <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
             <hr>
+            <p><?php echo "<b>Selected Park</b><br>" . $row['park_name']; ?></p>
         </div>
         <?php
             } else { ?>

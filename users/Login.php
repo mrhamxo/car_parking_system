@@ -14,9 +14,9 @@ if(isset($_SESSION['user'])){
     <title>Car_parcking System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        <style>
+    <style>
     body {
-        background-color:lightcyan;
+        background-color: lightcyan;
     }
 
     label {
@@ -44,8 +44,8 @@ if(isset($_SESSION['user'])){
                             </div>
                             <div class="form-group">
                                 <label for="Password">Password</label>
-                                <input type="text" class="form-control" id="Password"
-                                    placeholder="Password" name="password"><br>
+                                <input type="text" class="form-control" id="Password" placeholder="Password"
+                                    name="password"><br>
                                 <button type="submit" class="btn btn-primary" name="login">Login</button>
                             </div>
                         </form>

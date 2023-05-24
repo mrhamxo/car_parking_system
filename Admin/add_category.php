@@ -47,6 +47,7 @@ include('includes/sidebar.php');
                                 if(isset($_POST['submit'])){
                                 $cat_name=$_POST['catename'];
                                 $sql="INSERT INTO tblcategory(vehiclecat) VALUES('$cat_name')";
+                                //INSERT INTO `vehicle_category` (`id`, `name`, `active`) VALUES (NULL, 'Car', '1');
                                 $res=mysqli_query($conn,$sql);
                                 if($res){
                                     echo "<script>alert('Category added successfully');</script>";

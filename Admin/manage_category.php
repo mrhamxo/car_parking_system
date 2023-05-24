@@ -50,17 +50,41 @@ include('includes/sidebar.php');
                                     <tr>
                                         <th>S.NO</th>
                                         <th>Category</th>
-                                        <th>Action</th>
+                                        <th>Status</th>
                                     </tr>
                                     </tr>
                                 </thead>
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td><a href="" class="btn btn-primary">Edit</a>
-                                        <a href="" class="btn btn-danger"
-                                            onClick="return confirm('Are you sure you want to delete?')">Delete</a>
+                                    <?php
+                                    $sql="SELECT * FROM `vehicle_category`";
+                                    $res=mysqli_query($conn,$sql);
+                                    if(mysqli_num_rows($res)>0){
+                                    while($row=mysqli_fetch_assoc($res)){
+                                    ?>
+                                    <td><?php echo $row['id'];?></td>
+                                    <td><?php echo $row['name'];?></td>
+                                    <td>
+                                        <div class="custom-control custom-switch">
+                                            <input type="checkbox" class="custom-control-input"
+                                                id="<?Php echo $row['id'] ?>"
+                                                <?php if ($row['status'] == '1') { echo "checked";} ?>
+                                                onclick="toggleStatus(<?php echo $row['id'] ?>)">
+                                            <label class="custom-control-label"
+                                                for="<?Php echo $row['id'] ?>"></label>
+                                        </div>
+                                        <?php // if ($row['availability_status'] == '0') { 
+                                                    ?>
+                                        <!-- <span class="badge bg-green p-2 text-white">Available</span> -->
+                                        <?php // } else { 
+                                                    ?>
+                                        <!-- <span class="badge bg-danger p-2 text-white">Unavailable</span> -->
+                                        <?php // } 
+                                                    ?>
                                     </td>
+                                    <?php
+                                }
+                                }
+                                ?>
                                 </tr>
                             </table>
 
@@ -74,3 +98,22 @@ include('includes/sidebar.php');
 <?php
 include('includes/footer.php');
 ?>
+<script>
+    function toggleStatus(id) {
+        var id = id;
+        $.ajax({
+            url: "cat_toggle.php",
+            type: "POST",
+            data: {
+                car_toggleId: id,
+            },
+            success: function(result) {
+                if (result == '1') {
+                    swal("DONE!", "Status is ON", "success");
+                } else {
+                    swal("DONE!", "Status is OFF", "success");
+                }
+            },
+        });
+    }
+</script>

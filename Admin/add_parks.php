@@ -57,7 +57,8 @@ echo "<script>if(window.history.replaceState){
                                             <label for="text-input" class=" form-control-label">Park Name</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="catename" name="park_name" class="form-control" placeholder="Enter Park Name" required="true">
+                                            <input type="text" id="catename" name="park_name" class="form-control"
+                                                placeholder="Enter Park Name" required="true">
                                         </div>
                                     </div>
                                     <div class="row form-group">
@@ -65,20 +66,25 @@ echo "<script>if(window.history.replaceState){
                                             <label for="text-input" class=" form-control-label">Address</label>
                                         </div>
                                         <div class="col-12 col-md-9">
-                                            <input type="text" id="address" name="address" class="form-control" placeholder="Enter Park Address" autocomplete="off" >
+                                            <input type="text" id="address" name="address" class="form-control"
+                                                placeholder="Enter Park Address" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="otherCheckBox" class=" form-control-label">Other Address:</label>
+                                            <label for="otherCheckBox" class=" form-control-label">Other
+                                                Address:</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="checkbox" id="otherCheckBox" onclick="myFunction()">
-                                            <input type="text" id="otherAddress" style="display:none" name="address" class="form-control" placeholder="Enter Other Address" autocomplete="off" required="true">
+                                            <input type="text" id="otherAddress" style="display:none" name="address"
+                                                class="form-control" placeholder="Enter Other Address"
+                                                autocomplete="off" required="true">
                                         </div>
                                     </div>
                                     <p style="text-align: center;">
-                                        <button type="submit" name="park_btn" class="btn btn-primary btn-sm">Add</button>
+                                        <button type="submit" name="park_btn"
+                                            class="btn btn-primary btn-sm">Add</button>
                                     </p>
                                 </form>
                             </div>
@@ -93,97 +99,97 @@ echo "<script>if(window.history.replaceState){
 </div>
 
 <script>
-    let autocomplete;
-    let address1Field;
-    // let address2Field;
-    // let postalField;
+let autocomplete;
+let address1Field;
+// let address2Field;
+// let postalField;
 
-    function initAutocomplete() {
-        address1Field = document.querySelector("#address");
-        // address2Field = document.querySelector("#address2");
-        // postalField = document.querySelector("#postcode");
-        // Create the autocomplete object, restricting the search predictions to
-        // addresses in the US and Canada.
-        autocomplete = new google.maps.places.Autocomplete(address1Field, {
-            componentRestrictions: {
-                country: ["us", "ca", "pak"]
-            },
-            fields: ["address_components", "geometry"],
-            types: ["address"],
-        });
-        address1Field.focus();
-        // When the user selects an address from the drop-down, populate the
-        // address fields in the form.
-        autocomplete.addListener("place_changed", fillInAddress);
-    }
+function initAutocomplete() {
+    address1Field = document.querySelector("#address");
+    // address2Field = document.querySelector("#address2");
+    // postalField = document.querySelector("#postcode");
+    // Create the autocomplete object, restricting the search predictions to
+    // addresses in the US and Canada.
+    autocomplete = new google.maps.places.Autocomplete(address1Field, {
+        componentRestrictions: {
+            country: ["us", "ca", "pak"]
+        },
+        fields: ["address_components", "geometry"],
+        types: ["address"],
+    });
+    address1Field.focus();
+    // When the user selects an address from the drop-down, populate the
+    // address fields in the form.
+    autocomplete.addListener("place_changed", fillInAddress);
+}
 
-    // function fillInAddress() {
-    //     // Get the place details from the autocomplete object.
-    //     const place = autocomplete.getPlace();
-    //     let address1 = "";
-    //     let postcode = "";
+// function fillInAddress() {
+//     // Get the place details from the autocomplete object.
+//     const place = autocomplete.getPlace();
+//     let address1 = "";
+//     let postcode = "";
 
-    //     // Get each component of the address from the place details,
-    //     // and then fill-in the corresponding field on the form.
-    //     // place.address_components are google.maps.GeocoderAddressComponent objects
-    //     // which are documented at http://goo.gle/3l5i5Mr
-    //     for (const component of place.address_components) {
-    //         // @ts-ignore remove once typings fixed
-    //         const componentType = component.types[0];
+//     // Get each component of the address from the place details,
+//     // and then fill-in the corresponding field on the form.
+//     // place.address_components are google.maps.GeocoderAddressComponent objects
+//     // which are documented at http://goo.gle/3l5i5Mr
+//     for (const component of place.address_components) {
+//         // @ts-ignore remove once typings fixed
+//         const componentType = component.types[0];
 
-    //         switch (componentType) {
-    //             case "street_number": {
-    //                 address1 = `${component.long_name} ${address1}`;
-    //                 break;
-    //             }
+//         switch (componentType) {
+//             case "street_number": {
+//                 address1 = `${component.long_name} ${address1}`;
+//                 break;
+//             }
 
-    //             case "route": {
-    //                 address1 += component.short_name;
-    //                 break;
-    //             }
+//             case "route": {
+//                 address1 += component.short_name;
+//                 break;
+//             }
 
-    //             case "postal_code": {
-    //                 postcode = `${component.long_name}${postcode}`;
-    //                 break;
-    //             }
+//             case "postal_code": {
+//                 postcode = `${component.long_name}${postcode}`;
+//                 break;
+//             }
 
-    //             case "postal_code_suffix": {
-    //                 postcode = `${postcode}-${component.long_name}`;
-    //                 break;
-    //             }
-    //             case "locality":
-    //                 document.querySelector("#locality").value = component.long_name;
-    //                 break;
-    //             case "administrative_area_level_1": {
-    //                 document.querySelector("#state").value = component.short_name;
-    //                 break;
-    //             }
-    //             case "country":
-    //                 document.querySelector("#country").value = component.long_name;
-    //                 break;
-    //         }
-    //     }
+//             case "postal_code_suffix": {
+//                 postcode = `${postcode}-${component.long_name}`;
+//                 break;
+//             }
+//             case "locality":
+//                 document.querySelector("#locality").value = component.long_name;
+//                 break;
+//             case "administrative_area_level_1": {
+//                 document.querySelector("#state").value = component.short_name;
+//                 break;
+//             }
+//             case "country":
+//                 document.querySelector("#country").value = component.long_name;
+//                 break;
+//         }
+//     }
 
-    //     address1Field.value = address1;
-    //     postalField.value = postcode;
-    //     // After filling the form with address components from the Autocomplete
-    //     // prediction, set cursor focus on the second address line to encourage
-    //     // entry of subpremise information such as apartment, unit, or floor number.
-    //     address2Field.focus();
-    // }
+//     address1Field.value = address1;
+//     postalField.value = postcode;
+//     // After filling the form with address components from the Autocomplete
+//     // prediction, set cursor focus on the second address line to encourage
+//     // entry of subpremise information such as apartment, unit, or floor number.
+//     address2Field.focus();
+// }
 
-    window.initAutocomplete = initAutocomplete;
+window.initAutocomplete = initAutocomplete;
 </script>
 <script>
-    function myFunction() {
-        var otherCheckBox = document.getElementById("otherCheckBox");
-        var otherAddress = document.getElementById("otherAddress");
-        if (otherCheckBox.checked == true) {
-            otherAddress.style.display = "block";
-        } else {
-            otherAddress.style.display = "none";
-        }
+function myFunction() {
+    var otherCheckBox = document.getElementById("otherCheckBox");
+    var otherAddress = document.getElementById("otherAddress");
+    if (otherCheckBox.checked == true) {
+        otherAddress.style.display = "block";
+    } else {
+        otherAddress.style.display = "none";
     }
+}
 </script>
 <?php
 include('includes/footer.php');
