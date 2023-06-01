@@ -50,20 +50,32 @@ echo "<script>if(window.history.replaceState){
                         <strong>Add </strong>Parks
                     </div>
                     <div class="card-body card-block">
-                        <form action="./uet_slot.php" method="POST" class="form-horizontal">
+                        <?php
+                        if(isset($_POST['check'])){
+                        //echo "<h1>Hello This is Check</h1>";
+                        $sql="select *from slots";
+                        $res=mysqli_query($conn,$sql);
+                        if($res){
+                        echo "Successfully!";
+                        }
+                        }
+                        ?>
+                        <form action="" method="POST" class="form-horizontal">
                             <div class="form-group">
                                 <label for="select1">Select Park:</label>
-                                <select class="form-control" id="park">
-                                    <option value="option1">Select Park</option>
+                                <select class="form-control" id="park" name="park">
+                                    <option value="park">Select Park</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="select2">Select Slot:</label>
-                                <select class="form-control" id="slot">
-                                    <option value="option1">Select Slot</option>
+                                <select class="form-control" id="slot" name="slot">
+                                    <option value="slot">Select Slot</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary" name="select">Select</button>
+                            <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary" name="check" value="?= $id;">Select_Slot</button>
+                            </div>
                         </form>
                     </div>
                 </div>

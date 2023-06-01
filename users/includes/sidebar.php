@@ -26,6 +26,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="add_parks.php" class="nav-link">
+                        <i class="fa fa-solid fa-plus "></i>
+                        <p> Add Parks</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="select_slots.php" class="nav-link">
                         <i class="nav-icon fa fa-car"></i>
                         <p>Select Slots</p>

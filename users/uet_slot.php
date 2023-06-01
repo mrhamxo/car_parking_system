@@ -27,6 +27,7 @@ include('includes/sidebar.php');
     ?>
     <div class="row mt-4 ml-4">
         <?php
+        echo $park=$_POST['park'];
         $id = $_GET['id'];
         $sql = "SELECT parks.park_name,park_slot.slot_name,park_slot.availability_status FROM parks INNER JOIN park_slot ON parks.pid=park_slot.selected_park WHERE park_slot.selected_park=$id";
         $res = mysqli_query($conn, $sql);
