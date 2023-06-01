@@ -54,7 +54,7 @@ echo "<script>if(window.history.replaceState){
                                 <form action="" method="POST" class="form-horizontal">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
-                                            <label for="text-input" class=" form-control-label">Park Name</label>
+                                            <label for="text-input" class="form-control-label">Park Name</label>
                                         </div>
                                         <div class="col-12 col-md-9">
                                             <input type="text" id="catename" name="park_name" class="form-control"
@@ -76,10 +76,15 @@ echo "<script>if(window.history.replaceState){
                                                 Address:</label>
                                         </div>
                                         <div class="col-12 col-md-9">
+<<<<<<< Updated upstream
                                             <input type="checkbox" id="otherCheckBox" onclick="myFunction()">
                                             <input type="text" id="otherAddress" style="display:none" name="address"
                                                 class="form-control" placeholder="Enter Other Address"
                                                 autocomplete="off" required="true">
+=======
+                                            <input type="checkbox" id="otherCheckBox">
+                                            <input type="text" id="otherAddress" style="display:none" onclick="myFunction()" name="address" class="form-control" placeholder="Enter Other Address" autocomplete="off" required="true">
+>>>>>>> Stashed changes
                                         </div>
                                     </div>
                                     <p style="text-align: center;">

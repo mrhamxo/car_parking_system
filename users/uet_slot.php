@@ -34,6 +34,7 @@ include('includes/sidebar.php');
         while ($row = mysqli_fetch_assoc($res)) {
             if ($row['availability_status'] == "0") {
         ?>
+<<<<<<< Updated upstream
         <div class="card my-card bg-green m-4 text-center text-truncate"
             style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
             <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
@@ -41,14 +42,20 @@ include('includes/sidebar.php');
             <p><?php echo "<b>Selected Park</b><br>" . $row['park_name']; ?></p>
         </div>
         <?php
+=======
+                <div class="card my-card bg-green m-4 text-center text-truncate" style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
+                    <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
+                    <hr>
+                </div>
+            <?php
+>>>>>>> Stashed changes
             } else { ?>
-        <div class="card my-card bg-danger m-4 text-center text-truncate"
-            style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
-            <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
-            <hr>
-            <p><?php echo "<b>Selected Park</b><br>" . $row['park_name']; ?></p>
-            <hr>
-        </div>
+                <div class="card my-card bg-danger m-4 text-center text-truncate" style="height:300px;width:250px;padding-top:10px;padding-bottom:0px">
+                    <p><?php echo "<b>Slot Name</b><br>" . $row['slot_name']; ?></p>
+                    <hr>
+                    <p><?php echo "<b>Selected Park</b><br>" . $row['park_name']; ?></p>
+                    <hr>
+                </div>
         <?php }
         } ?>
     </div>
